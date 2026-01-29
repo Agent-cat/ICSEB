@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2026 – Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    table.reg-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    }
+    table.reg-table th {
+      background: #1565c0;
+      color: #fff;
+      padding: 0.7rem;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    table.reg-table td {
+      padding: 0.7rem;
+      border-bottom: 1px solid #e1e8f5;
+      font-size: 0.9rem;
+    }
+    table.reg-table tr:last-child td { border-bottom: none; }
+
+    /* Center fee columns for main table */
+    table.reg-table thead th:nth-child(2),
+    table.reg-table thead th:nth-child(3),
+    table.reg-table tbody td:nth-child(2),
+    table.reg-table tbody td:nth-child(3) {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Second table (listeners) – keep same style but with 4 columns */
+    table.reg-table.simple-head thead th:nth-child(2),
+    table.reg-table.simple-head thead th:nth-child(3) {
+      text-align: center;
+    }
+    table.reg-table.simple-head tbody td:nth-child(2),
+    table.reg-table.simple-head tbody td:nth-child(3) {
+      text-align: center;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper" id="top">
+
+
+  <!-- Header include -->
+  <div id="header-placeholder"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <h2 class="section-heading">Registration</h2>
+      <p class="section-subtitle">
+        Registration details for ICSEB 2026. Authors must register for inclusion of
+        accepted papers in the proceedings and IEEE Xplore&reg; (subject to IEEE quality
+        review and standards).
+      </p>
+
+      <!-- ============ Authors' Registration Fees ============ -->
+      <div class="text-block">
+  <h3>Registration Categories &amp; Fees – Authors (with Paper)</h3>
+  <table class="reg-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>IEEE Student Members</th>
+        <th>IEEE Members (Faculty / Research / Industry)</th>
+        <th>Non-IEEE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- INDIAN AUTHORS – STUDENTS -->
+      <tr>
+        <td>Indian Student Authors – Early-Bird (up to 15 October 2026)</td>
+        <td>6,800 INR</td>
+        <td>7,800 INR</td>
+        <td>8,800 INR</td>
+      </tr>
+      <tr>
+        <td>Indian Student Authors – Regular (16 October to 10 November 2026)</td>
+        <td>7,500 INR</td>
+        <td>8,500 INR</td>
+        <td>9,500 INR</td>
+      </tr>
+
+      <!-- INDIAN AUTHORS – FACULTY / RESEARCH -->
+      <tr>
+        <td>Indian Faculty / Research Scholar Authors – Early-Bird</td>
+        <td>–</td>
+        <td>8,800 INR</td>
+        <td>9,800 INR</td>
+      </tr>
+      <tr>
+        <td>Indian Faculty / Research Scholar Authors – Regular</td>
+        <td>–</td>
+        <td>9,500 INR</td>
+        <td>10,500 INR</td>
+      </tr>
+
+      <!-- FOREIGN AUTHORS – STUDENTS -->
+      <tr>
+        <td>Foreign Student Authors – Early-Bird</td>
+        <td>110 USD</td>
+        <td>120 USD</td>
+        <td>130 USD</td>
+      </tr>
+      <tr>
+        <td>Foreign Student Authors – Regular</td>
+        <td>120 USD</td>
+        <td>130 USD</td>
+        <td>140 USD</td>
+      </tr>
+
+      <!-- FOREIGN AUTHORS – FACULTY / RESEARCH / INDUSTRY -->
+      <tr>
+        <td>Foreign Faculty / Research / Industry Authors – Early-Bird</td>
+        <td>–</td>
+        <td>130 USD</td>
+        <td>140 USD</td>
+      </tr>
+      <tr>
+        <td>Foreign Faculty / Research / Industry Authors – Regular</td>
+        <td>–</td>
+        <td>140 USD</td>
+        <td>150 USD</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:0.6rem;font-size:0.86rem;">
+    <strong>Note:</strong> The above registration fee is applicable for ICSEB 2026
+    paper presenters. One full registration is mandatory for each accepted paper.
+    Bank / transfer charges shall be borne by the participants. GST or other statutory
+    taxes, if applicable, will be notified on this page.<br />
+    <strong>Early-Bird Registration:</strong> up to 15 October 2026 &nbsp;|&nbsp;
+    <strong>Regular Registration:</strong> 16 October to 10 November 2026.
+  </p>
+</div>
+
+<!-- ============ Listener / Delegate Registration ============ -->
+<div class="text-block">
+  <h3>Listener / Delegate Registration (Without Paper)</h3>
+  <table class="reg-table simple-head">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Indian (Regular / Early-Bird)</th>
+        <th>Foreign (Regular / Early-Bird)</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Listener / Attendee (Academic / Research)</td>
+        <td>2,500 INR / 2,200 INR</td>
+        <td>90 USD / 80 USD</td>
+        <td>Access to all technical sessions, keynotes and conference kit</td>
+      </tr>
+      <tr>
+        <td>Industry / R&amp;D Delegate (without paper)</td>
+        <td>4,000 INR / 3,600 INR</td>
+        <td>110 USD / 100 USD</td>
+        <td>Best suited for professionals focusing on talks, demos and networking</td>
+      </tr>
+      <tr>
+        <td>Student Delegate (without paper)</td>
+        <td>1,500 INR / 1,200 INR</td>
+        <td>80 USD / 70 USD</td>
+        <td>Must produce valid student ID at registration desk; participation certificate included</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:0.6rem;font-size:0.86rem;">
+    <strong>Note:</strong> Listener / delegate registration does not include paper
+    publication. Delegates will receive participation certificates subject to
+    attendance and completion of registration formalities.<br />
+    <strong>Early-Bird Registration:</strong> up to 15 October 2026 &nbsp;|&nbsp;
+    <strong>Regular Registration:</strong> 16 October to 10 November 2026.
+  </p>
+</div>
+
+
+      <!-- Guidelines -->
+      <div class="text-block">
+        <h3>Registration Guidelines</h3>
+        <ul class="clean-list">
+          <li>Each accepted paper must have at least one author registered for the conference.</li>
+          <li>One registration is valid for presenting one paper only. Additional papers may require additional registration as per policy.</li>
+          <li>Registered author must attend and present the paper in the assigned session (oral/poster) for inclusion in IEEE Xplore&reg;.</li>
+          <li>Proof of IEEE membership / student status (for Indian and foreign authors) must be provided at the time of registration.</li>
+          <li>Registration fee includes access to technical sessions, conference kit, lunch and refreshments on conference days.</li>
+        </ul>
+      </div>
+
+      <!-- Payment Info -->
+      <div class="text-block">
+        <h3>Payment Information</h3>
+        <p>
+          Detailed bank account / online payment gateway details will be provided here.
+          Authors and delegates will be able to pay the registration fee through
+          NEFT/RTGS/Bank transfer or an online payment link.
+        </p>
+        <ul class="clean-list">
+          <li>After completing the payment, participants must upload the payment proof (UTR/transaction ID) in the registration form.</li>
+          <li>The registration form link will be shared on this page as well as via email to accepted authors.</li>
+          <li>Invoices/receipts will be issued in the name and affiliation provided in the registration form.</li>
+        </ul>
+      </div>
+
+      <!-- Cancellation -->
+      <div class="text-block">
+        <h3>Cancellation Policy</h3>
+        <p>
+          As per standard IEEE conference norms, cancellation and refund (if applicable)
+          will be limited and subject to administrative charges. Detailed policy will be
+          announced along with complete payment instructions.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer include -->
+  <div id="footer-placeholder"></div>
+</div>
+
+<script>
+  function loadPartial(id, file, onLoad) {
+    fetch(file)
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById(id).innerHTML = html;
+        if (onLoad) onLoad();
+      });
+  }
+  function setActiveNav(pageClass) {
+    const link = document.querySelector(".main-nav a.nav-" + pageClass);
+    if (link) link.classList.add("active");
+  }
+  loadPartial("header-placeholder", "header.html", () => setActiveNav("registration"));
+  loadPartial("footer-placeholder", "footer.html");
+</script>
+</body>
+</html>

@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2026 – Conference Brochure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ================================
+       Brochure-specific layout
+       ================================ */
+
+    .brochure-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .brochure-panel {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.9rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+      border: 1px solid rgba(21, 101, 192, 0.18);
+      margin-bottom: 1.2rem;
+    }
+
+    .brochure-hero {
+      background: radial-gradient(circle at top left, #e3f2fd, #ffffff);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brochure-hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top right, rgba(25, 118, 210, 0.08), transparent);
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .brochure-hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .brochure-hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .brochure-logo-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brochure-logo-row img {
+      object-fit: contain;
+    }
+
+    /* Conference + KL logo: same visual height */
+    .brochure-logo-main {
+      height: 80px;
+      padding: 8px 12px;
+      background: #0d47a1;              /* dark blue pill so white logo pops */
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(13, 71, 161, 0.45);
+    }
+
+    .brochure-logo-kl {
+      height: 80px;
+    }
+
+    /* IEEE logos stacked one below another */
+    .brochure-logo-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .brochure-logo-ieee {
+      height: 38px;
+      width: 210px;
+    }
+
+    .brochure-tagline {
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1565c0;
+      font-weight: 700;
+    }
+
+    .brochure-title {
+      font-size: 1.6rem;
+      line-height: 1.3;
+      font-weight: 800;
+      color: #0b1a2b;
+    }
+
+    .brochure-acronym {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1565c0;
+      margin-top: 0.1rem;
+    }
+
+    .brochure-meta {
+      font-size: 0.92rem;
+      color: #37475a;
+    }
+
+    .brochure-meta strong {
+      font-weight: 700;
+      color: #0d47a1;
+    }
+
+    .brochure-meta-sponsor {
+      font-size: 0.86rem;
+      color: #0b1a2b;
+      margin-top: 0.4rem;
+      background: rgba(227, 242, 253, 0.9);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      display: inline-block;
+      border: 1px solid rgba(21, 101, 192, 0.2);
+    }
+
+    .brochure-meta-sponsor strong {
+      color: #0d47a1;
+    }
+
+    .brochure-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .brochure-badge {
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(21, 101, 192, 0.22);
+      background: rgba(227, 242, 253, 0.9);
+      font-size: 0.78rem;
+      color: #0d47a1;
+      font-weight: 600;
+    }
+
+    .brochure-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: flex-end;
+    }
+
+    .brochure-highlight-box {
+      background: linear-gradient(135deg, #1565c0, #1e88e5);
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      color: #e3f2fd;
+      box-shadow: 0 16px 38px rgba(21, 101, 192, 0.5);
+      width: 100%;
+    }
+
+    .brochure-highlight-box h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: #e3f2fd;
+    }
+
+    .brochure-highlight-box p {
+      font-size: 0.86rem;
+    }
+
+    .brochure-keydates {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.7rem;
+    }
+
+    .brochure-date-chip {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 0.5rem 0.65rem;
+      font-size: 0.82rem;
+      color: #0b1a2b;
+      border: 1px solid rgba(227, 242, 253, 0.95);
+    }
+
+    .brochure-date-chip strong {
+      display: block;
+      font-size: 0.82rem;
+      color: #1565c0;
+      margin-bottom: 0.1rem;
+    }
+
+    /* About & Tracks two-column block */
+    .brochure-two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 1.4rem;
+    }
+
+    .brochure-two-col h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+      color: #0d1b2a;
+    }
+
+    .brochure-two-col p,
+    .brochure-two-col li {
+      font-size: 0.9rem;
+    }
+
+    .brochure-two-col ul {
+      margin-left: 1.2rem;
+      list-style: square;
+    }
+
+    .brochure-pill-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #1565c0;
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+    }
+
+    /* Highlights cards */
+    .brochure-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .brochure-highlight-card {
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(135deg, #e3f2fd, #ffffff);
+      border: 1px solid rgba(21, 101, 192, 0.12);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .brochure-highlight-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: #0d1b2a;
+    }
+
+    .brochure-highlight-card p,
+    .brochure-highlight-card li {
+      font-size: 0.88rem;
+    }
+
+    /* Fees table within brochure */
+    .brochure-fees-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      background: #ffffff;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    }
+
+    .brochure-fees-table th {
+      background: #1565c0;
+      color: #ffffff;
+      padding: 0.55rem 0.7rem;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .brochure-fees-table td {
+      padding: 0.55rem 0.7rem;
+      border-bottom: 1px solid #e1e8f5;
+    }
+
+    .brochure-fees-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .brochure-fees-table th:nth-child(2),
+    .brochure-fees-table th:nth-child(3),
+    .brochure-fees-table td:nth-child(2),
+    .brochure-fees-table td:nth-child(3) {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Venue + Gallery */
+    .brochure-venue-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 1.3rem;
+      align-items: center;
+    }
+
+    .brochure-venue-grid p {
+      font-size: 0.9rem;
+    }
+
+    .brochure-gallery-box {
+      background: #f4f7fb;
+      border-radius: 16px;
+      padding: 0.8rem;
+      border: 1px solid #dbe5f4;
+    }
+
+    /* ========== CAMPUS GLIMPSES COLLAGE GRID (6 images, 3 columns) ========== */
+    .brochure-gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+
+    .brochure-gallery-strip img {
+      width: 100%;
+      height: 140px;              /* equal height for all */
+      border-radius: 12px;
+      border: 1px solid #dbe5f4;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+      object-fit: cover;          /* crop to fill (collage effect) */
+      background: #ffffff;
+    }
+
+    /* Contact footer in brochure panel */
+    .brochure-contact-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.2rem;
+    }
+
+    .brochure-contact-row p {
+      font-size: 0.88rem;
+    }
+
+    .brochure-contact-row strong {
+      color: #0d47a1;
+    }
+
+    .brochure-contact-row a {
+      color: #1565c0;
+      text-decoration: none;
+    }
+
+    .brochure-contact-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* Map section */
+    .brochure-map-wrapper {
+      margin-top: 0.8rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #dbe5f4;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+    }
+
+    .brochure-map {
+      width: 100%;
+      height: 260px;
+      border: 0;
+    }
+
+       .brochure-print-btn-wrapper {
+      text-align: center;
+      margin: 0.3rem 0 0.8rem;
+    }
+
+    .brochure-print-btn,
+    .brochure-download-btn {
+      margin-top: 0.4rem;
+      margin-inline: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    /* Download button styling */
+    .brochure-download-btn {
+      display: inline-block;
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid #1565c0;
+      background: #ffffff;
+      color: #1565c0;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brochure-download-btn:hover {
+      background: #1565c0;
+      color: #ffffff;
+    }
+
+
+    /* ========== PRINT (A4) OPTIMIZATION ========== */
+    @media print {
+      @page {
+        size: A4;
+        margin: 1.2cm;    /* slightly tighter margin to fit */
+      }
+
+      body {
+        background: #ffffff !important;
+      }
+
+      .site-header,
+      .site-footer {
+        display: none !important;  /* hide website chrome when printing brochure */
+      }
+
+      .main-content {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .brochure-wrapper {
+        max-width: 100%;
+      }
+
+      .brochure-panel {
+        box-shadow: none;
+        border: 1px solid #bbbbbb;
+        margin-bottom: 0.8rem;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .brochure-title {
+        font-size: 1.4rem;
+      }
+
+      .brochure-panel,
+      .brochure-panel p,
+      .brochure-panel li {
+        font-size: 0.88rem;
+      }
+
+      .brochure-print-btn-wrapper {
+        display: none !important;
+      }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 900px) {
+      .brochure-hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .brochure-hero-right {
+        align-items: flex-start;
+      }
+      .brochure-venue-grid,
+      .brochure-contact-row {
+        grid-template-columns: 1fr;
+      }
+      .brochure-wrapper {
+        padding: 0;
+      }
+      .brochure-logo-row {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper" id="top">
+
+  <!-- Header include -->
+  <div id="header-placeholder"></div>
+
+  <main class="main-content">
+    <div class="container brochure-wrapper">
+
+      <!-- ================== HERO / TOP PANEL ================== -->
+      <section class="brochure-panel brochure-hero">
+        <div class="brochure-hero-inner">
+          <!-- Left: Logos + Title -->
+          <div class="brochure-hero-left">
+            <div class="brochure-logo-row">
+              <!-- Conference logo with blue pill background -->
+              <img src="images/Conf Logo.png"
+                   alt="ICSEB 2026 Conference Logo"
+                   class="brochure-logo-main" />
+
+              <!-- KL logo -->
+              <img src="images/KL_University_logo.svg"
+                   alt="K L University Logo"
+                   class="brochure-logo-kl" />
+
+              <!-- IEEE logos stacked -->
+              <div class="brochure-logo-stack">
+                <img src="images/IEEE - Hyderabad Section Logo.png"
+                     alt="IEEE Hyderabad Section Logo"
+                     class="brochure-logo-ieee" />
+                <img src="images/ieee_guntur_subsection.png"
+                     alt="IEEE Guntur Subsection Logo"
+                     class="brochure-logo-ieee" />
+              </div>
+            </div>
+
+            <div class="brochure-tagline">
+              Call for Papers &amp; Participation
+            </div>
+            <div class="brochure-title">
+              1st IEEE International Conference on 
+              Intelligent Computing, Smart Electronics and Bioinformatics – 2026
+            </div>
+            <div class="brochure-acronym">
+              ICSEB&nbsp;2026
+            </div>
+            <div class="brochure-meta">
+              <strong>Dates:</strong> 27–28 November 2026<br />
+              <strong>Venue:</strong> K L Deemed to be University (KLEF),
+              Vijayawada Campus, Andhra Pradesh, India
+            </div>
+
+            <!-- Sponsor line exactly as requested -->
+            <div class="brochure-meta-sponsor">
+              Sponsored by <strong>Koneru Lakshmaiah Education Foundation</strong> &amp;
+              Technical Sponsor by <strong>IEEE Hyderabad Section</strong> &amp;
+              <strong>IEEE Guntur Subsection</strong>
+            </div>
+
+            <div class="brochure-badges">
+              <span class="brochure-badge">Intelligent Computing</span>
+              <span class="brochure-badge">Smart Electronics</span>
+              <span class="brochure-badge">Bioinformatics &amp; Healthcare</span>
+            </div>
+          </div>
+
+          <!-- Right: Key Highlights & Dates -->
+          <div class="brochure-hero-right">
+            <div class="brochure-highlight-box">
+              <h3>Why ICSEB 2026?</h3>
+              <p>
+                ICSEB 2026 aims to bring together academicians, researchers, industry
+                professionals and students to exchange and share their latest research,
+                innovations and experiences in intelligent computing, smart electronics
+                and bioinformatics.
+              </p>
+            </div>
+
+           <div class="brochure-keydates">
+  <div class="brochure-date-chip">
+    <strong>Paper Submission Deadline</strong>
+    30 June 2026
+  </div>
+  <div class="brochure-date-chip">
+    <strong>Acceptance Notification</strong>
+    31 August 2026
+  </div>
+  <div class="brochure-date-chip">
+    <strong>Camera-Ready Submission</strong>
+    30 September 2026
+  </div>
+  <div class="brochure-date-chip">
+    <strong>Early-Bird Registration</strong>
+    Up to 15 October 2026
+  </div>
+  <div class="brochure-date-chip">
+    <strong>Regular Registration</strong>
+    16 October – 10 November 2026
+  </div>
+  <div class="brochure-date-chip">
+    <strong>Conference Dates</strong>
+    27–28 November 2026
+  </div>
+</div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== ABOUT & TRACKS ================== -->
+      <section class="brochure-panel">
+        <div class="brochure-two-col">
+          <!-- About the Conference -->
+          <div>
+            <div class="brochure-pill-title">About the Conference</div>
+            <h3>ICSEB 2026 – Connecting Intelligence, Electronics &amp; Life Sciences</h3>
+            <p>
+              ICSEB 2026 provides a premier interdisciplinary platform for researchers,
+              practitioners and educators to present and discuss the most recent
+              innovations, trends and concerns as well as practical challenges encountered
+              and solutions adopted in the fields of:
+            </p>
+            <ul>
+              <li>Artificial Intelligence, Machine Learning &amp; Data Science</li>
+              <li>Smart Electronics, Embedded Systems &amp; VLSI</li>
+              <li>Communication, Networking &amp; Cyber Security</li>
+              <li>Bioinformatics, Healthcare Analytics &amp; Biomedical Engineering</li>
+              <li>Interdisciplinary applications and emerging intelligent systems</li>
+            </ul>
+            <p style="margin-top:0.5rem;">
+              The conference will feature keynote talks by distinguished experts,
+              technical paper presentations, poster sessions and industry interactions,
+              fostering collaboration between academia and industry.
+            </p>
+          </div>
+
+          <!-- Tracks / Themes -->
+          <div>
+            <div class="brochure-pill-title">Conference Tracks (Indicative)</div>
+            <h3>Tracks &amp; Themes</h3>
+            <ul>
+              <li><strong>Intelligent Computing &amp; AI</strong> – Deep learning,
+                  reinforcement learning, explainable AI, big data analytics.</li>
+              <li><strong>Smart Electronics &amp; Systems</strong> – VLSI, signal
+                  processing, IoT hardware, sensors and embedded platforms.</li>
+              <li><strong>Communication, Networks &amp; Security</strong> – 5G/6G,
+                  software-defined networking, cyber security, blockchain, edge/fog computing.</li>
+              <li><strong>Bioinformatics &amp; Healthcare</strong> – Computational
+                  genomics, medical image analysis, digital health, precision medicine.</li>
+              <li><strong>Interdisciplinary Innovations</strong> – Smart cities, smart
+                  grids, intelligent transportation, environmental monitoring, agritech
+                  and sustainability applications.</li>
+            </ul>
+            <p style="margin-top:0.4rem;font-size:0.86rem;">
+              Detailed list of topics is available on the Call for Papers page of the
+              conference website.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== HIGHLIGHTS / PUBLICATION / KEYNOTE ================== -->
+      <section class="brochure-panel">
+        <div class="brochure-highlight-grid">
+          <!-- Publications -->
+          <div class="brochure-highlight-card">
+            <div class="brochure-pill-title">Publications</div>
+            <h3>Publication &amp; Indexing</h3>
+            <ul>
+              <li>All accepted and presented papers will be submitted for inclusion in
+                  <strong>IEEE Xplore&reg;</strong>, subject to IEEE quality checks and
+                  policies.</li>
+              <li>Extended versions of selected high-quality papers may be considered
+                  for publication in reputed journals or edited volumes (to be
+                  announced).</li>
+              <li>Authors must ensure originality and adhere to IEEE plagiarism and
+                  ethical guidelines.</li>
+            </ul>
+          </div>
+
+          <!-- Keynotes -->
+          <div class="brochure-highlight-card">
+            <div class="brochure-pill-title">Keynote Speakers (Tentative)</div>
+            <h3>Global Thought Leaders</h3>
+            <ul>
+              <li><strong>Prof. Xiao-Zhi Gao</strong>, School of Computing,
+                  University of Eastern Finland, Finland.</li>
+              <li><strong>Prof. Martin Margala</strong>, Director, School of Computing
+                  and Informatics, University of Louisiana at Lafayette, USA.</li>
+              <li><strong>Prof. Tai-hoon Kim</strong>, Chonnam National University,
+                  Republic of Korea.</li>
+              <li><strong>Dr. Manisha Gudur</strong>, Lawrence Technological University,
+                  Michigan, USA.</li>
+              <li><strong>Dr. Azath Mubarakali</strong>, King Khalid University,
+                  Kingdom of Saudi Arabia.</li>
+              <li><strong>Dr. Subarna Shakya</strong>, Tribhuvan University, Nepal.</li>
+            </ul>
+            <p style="margin-top:0.35rem;font-size:0.8rem;">
+              <em>(Final list of keynote and invited speakers will be updated on the
+              website.)</em>
+            </p>
+          </div>
+
+          <!-- Who should attend -->
+          <div class="brochure-highlight-card">
+            <div class="brochure-pill-title">Who Should Attend?</div>
+            <h3>Target Audience</h3>
+            <ul>
+              <li>Faculty members and researchers from universities and R&amp;D labs.</li>
+              <li>Postgraduate and undergraduate students working in related domains.</li>
+              <li>Industry professionals, practitioners and technology innovators.</li>
+              <li>Policy makers and stakeholders in intelligent and sustainable systems.</li>
+            </ul>
+            <p style="margin-top:0.35rem;font-size:0.86rem;">
+              ICSEB 2026 offers an excellent platform for networking, collaboration,
+              and knowledge exchange across diverse but connected domains.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== FEES & REGISTRATION ================== -->
+      <section class="brochure-panel">
+        <div class="brochure-two-col">
+          <div>
+  <div class="brochure-pill-title">Registration</div>
+  <h3>Authors’ Registration Fees</h3>
+  <table class="brochure-fees-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Regular Fee</th>
+        <th>Early-Bird Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Indian Authors (INR) -->
+      <tr>
+        <td>Student Author – General (Non-IEEE)</td>
+        <td>9,500 INR</td>
+        <td>8,500 INR</td>
+      </tr>
+      <tr>
+        <td>Student Author – IEEE Member</td>
+        <td>8,500 INR</td>
+        <td>7,500 INR</td>
+      </tr>
+      <tr>
+        <td>Student Author – IEEE Student Member</td>
+        <td>7,500 INR</td>
+        <td>6,500 INR</td>
+      </tr>
+      <tr>
+        <td>Faculty / Research Scholar – General (Non-IEEE)</td>
+        <td>10,500 INR</td>
+        <td>9,500 INR</td>
+      </tr>
+      <tr>
+        <td>Faculty / Research Scholar – IEEE Member</td>
+        <td>9,500 INR</td>
+        <td>8,500 INR</td>
+      </tr>
+
+      <!-- Foreign Authors (USD) -->
+      <tr>
+        <td>Foreign Author – General (Non-IEEE)</td>
+        <td>150 USD</td>
+        <td>130 USD</td>
+      </tr>
+      <tr>
+        <td>Foreign Author – IEEE Member</td>
+        <td>140 USD</td>
+        <td>120 USD</td>
+      </tr>
+      <tr>
+        <td>Foreign Author – IEEE Student Member</td>
+        <td>130 USD</td>
+        <td>110 USD</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:0.45rem;font-size:0.82rem;">
+    <strong>Note:</strong> Early-Bird Registration is open up to
+    <strong>15 October 2026</strong>. Regular Registration is from
+    <strong>16 October to 10 November 2026</strong>. One registration is
+    mandatory for each accepted paper. Bank / transfer charges are to be
+    borne by the participants. Applicable taxes (if any) will be notified
+    on the website.
+  </p>
+</div>
+
+
+          <div>
+  <div class="brochure-pill-title">Delegates (Without Paper)</div>
+  <h3>Listener / Delegate Fees</h3>
+  <table class="brochure-fees-table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Indian (Reg/ Early-Bird)</th>
+        <th>Foreign (Reg/ Early-Bird)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Student Delegate (without paper)</td>
+        <td>1,500 INR / 1,200 INR</td>
+        <td>80 USD / 70 USD</td>
+      </tr>
+      <tr>
+        <td>Academic / Research Delegate</td>
+        <td>2,500 INR / 2,200 INR</td>
+        <td>90 USD / 80 USD</td>
+      </tr>
+      <tr>
+        <td>Industry / R&amp;D Delegate</td>
+        <td>4,000 INR / 3,600 INR</td>
+        <td>110 USD / 100 USD</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:0.45rem;font-size:0.82rem;">
+    <strong>Note:</strong> Early-Bird Registration for delegates is available up to
+    <strong>15 October 2026</strong>. Regular Registration is from
+    <strong>16 October to 10 November 2026</strong>. Delegate/Listener registration
+    includes access to all technical sessions and keynotes, conference kit and
+    participation certificate (subject to attendance and registration completion).
+  </p>
+</div>
+
+      </section>
+
+      <!-- ================== VENUE & CAMPUS SNAPSHOTS ================== -->
+      <section class="brochure-panel">
+        <div class="brochure-venue-grid">
+          <!-- Venue text -->
+          <div>
+            <div class="brochure-pill-title">Venue</div>
+            <h3>K L Deemed to be University (KLEF), Vijayawada Campus</h3>
+            <p>
+              <strong>Address:</strong><br />
+              Green Fields, Vaddeswaram,<br />
+              Guntur – 522502,<br />
+              Andhra Pradesh, India.
+            </p>
+            <p style="margin-top:0.4rem;">
+              The vibrant Vijayawada campus of KLEF is located near the
+              Vijayawada–Guntur highway, close to the scenic Krishna River. It offers
+              state-of-the-art lecture halls, auditoria, laboratories and modern
+              research infrastructure, providing an excellent environment for an
+              international conference.
+            </p>
+            <p style="margin-top:0.4rem;font-size:0.86rem;">
+              The campus is well connected by <strong>air</strong> (Vijayawada
+              International Airport – Gannavaram), <strong>rail</strong> (Vijayawada
+              and Guntur junctions) and <strong>road</strong>, with convenient
+              accessibility from major cities.
+            </p>
+          </div>
+
+          <!-- Campus images collage -->
+          <div class="brochure-gallery-box">
+            <div class="brochure-pill-title">Campus Glimpses</div>
+            <div class="brochure-gallery-strip">
+              <img src="images/KLUni Pic1.png" alt="KL University Campus View 1" />
+              <img src="images/KLUni Pic2.png" alt="KL University Campus View 2" />
+              <img src="images/KLUni Pic5.png" alt="KL University Campus View 3" />
+              <img src="images/KLUni Pic4.png" alt="KL University Campus View 4" />
+              <img src="images/KLUni Pic3.png" alt="KL University Campus View 5" />
+              <img src="images/KLUni Pic6.png" alt="KL University Campus View 6" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== CONTACT & WEBSITE ================== -->
+      <section class="brochure-panel">
+        <div class="brochure-contact-row">
+          <div>
+            <div class="brochure-pill-title">Contact</div>
+            <h3>Conference Secretariat – ICSEB 2026</h3>
+            <p>
+              K L Deemed to be University (KLEF)<br />
+              Vaddeswaram, Guntur – 522502,<br />
+              Andhra Pradesh, India.
+            </p>
+            <p style="margin-top:0.3rem;">
+              Email:
+              <a href="mailto:info@ICSEB.crinfoglobal.com">info@ICSEB.crinfoglobal.com</a><br />
+              Alternate:
+              <a href="mailto:ICSEB2026@kluniversity.in">ICSEB2026@kluniversity.in</a>
+            </p>
+            <p style="margin-top:0.3rem;">
+              <strong>Organizing Chair:</strong><br />
+              Dr. DINESH KUMAR ANGURAJ<br />
+              Associate Dean (R&amp;D) &amp; Associate Professor, Dept. of CSE (EL&amp;GE),<br />
+              K L University, Guntur, Andhra Pradesh, India – 522302.<br />
+              Email:
+              <a href="mailto:adinesh@kluniversity.in">adinesh@kluniversity.in</a> &nbsp;|&nbsp;
+              Mobile:
+              <a href="tel:+919445100171">+91 94451 00171</a>
+            </p>
+          </div>
+          <div>
+            <div class="brochure-pill-title">More Information</div>
+            <h3>Stay Updated</h3>
+            <p>
+              Detailed information on paper submission, author guidelines, technical
+              tracks, keynote speakers, registration process and accommodation options
+              is available on the conference website.
+            </p>
+            <p style="margin-top:0.4rem;">
+              <strong>Conference Website:</strong><br />
+              <a href="index.html">www.ICSEB.crinfoglobal.com</a> (local site link)
+            </p>
+            <p style="margin-top:0.4rem;font-size:0.86rem;">
+              <em>We warmly invite you to submit your research contributions and
+              participate in ICSEB 2026 at K L Deemed to be University, Vijayawada.</em>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== LOCATION MAP (LAST PANEL) ================== -->
+      <section class="brochure-panel">
+        <div class="brochure-pill-title">Location Map</div>
+        <h3>How to Reach K L Deemed to be University, Vijayawada Campus</h3>
+        <p style="font-size:0.9rem;margin-top:0.3rem;">
+          You can locate the campus using the interactive map below. Use this for
+          navigation from Vijayawada International Airport (Gannavaram), Vijayawada
+          Junction, Guntur Junction, or nearby cities.
+        </p>
+        <div class="brochure-map-wrapper">
+          <!-- Simple Google Maps embed using query; you can replace with your own embed URL if needed -->
+          <iframe
+            class="brochure-map"
+            src="https://www.google.com/maps?q=K%20L%20Deemed%20to%20be%20University%20Vaddeswaram%20Guntur&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </section>
+
+      <!-- ================== PRINT BUTTON ================== -->
+           <!-- ================== PRINT & DOWNLOAD BUTTONS ================== -->
+      <div class="brochure-print-btn-wrapper">
+        <!-- Print: opens browser print dialog (same behaviour as now) -->
+        <button type="button"
+                class="btn btn-primary brochure-print-btn"
+                onclick="window.print()">
+          Print this Brochure
+        </button>
+
+        <!-- Download: downloads the ready-made PDF brochure -->
+        <a href="resources/ICSEB 2026 – Conference Brochure.pdf"
+           class="brochure-download-btn"
+           download>
+          Download this Brochure (PDF)
+        </a>
+      </div>
+
+
+    </div>
+  </main>
+
+  <!-- Footer include -->
+  <div id="footer-placeholder"></div>
+</div>
+
+<script>
+  function loadPartial(id, file, onLoad) {
+    fetch(file)
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById(id).innerHTML = html;
+        if (onLoad) onLoad();
+      });
+  }
+  function setActiveNav(pageClass) {
+    const link = document.querySelector(".main-nav a.nav-" + pageClass);
+    if (link) link.classList.add("active");
+  }
+  // Use 'brochure' as a class if you add a menu item later
+  loadPartial("header-placeholder", "header.html", () => setActiveNav("brochure"));
+  loadPartial("footer-placeholder", "footer.html");
+</script>
+</body>
+</html>

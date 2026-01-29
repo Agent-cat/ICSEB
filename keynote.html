@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2026 – Keynote Speakers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ========== Keynote Page Specific Styles ========== */
+
+    .keynote-intro-note {
+      margin-top: 0.4rem;
+      font-size: 0.86rem;
+      color: #475569;
+    }
+
+    .keynote-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.6rem;
+      margin-top: 1.6rem;
+    }
+
+    .keynote-card {
+      position: relative;
+      padding: 1.3rem 1.4rem 1.1rem;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, #dbeafe 0, #ffffff 45%, #e0f2fe 100%);
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .keynote-card::before {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(37,99,235,0.35), transparent 60%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .keynote-header {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .speaker-avatar {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #bfdbfe, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.5);
+    }
+
+    .speaker-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .speaker-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.08rem;
+    }
+
+    .speaker-role {
+      font-size: 0.86rem;
+      color: #1e293b;
+      font-weight: 500;
+    }
+
+    .speaker-affiliation {
+      font-size: 0.82rem;
+      color: #475569;
+      line-height: 1.3;
+      margin-top: 0.1rem;
+    }
+
+    .keynote-topic-label {
+      margin-top: 0.45rem;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .keynote-topic {
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .speaker-tags {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .speaker-tag {
+      font-size: 0.72rem;
+      padding: 0.14rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.08);
+      color: #1d4ed8;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      font-weight: 500;
+    }
+
+    .speaker-extra {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #4b5563;
+      line-height: 1.35;
+    }
+
+    .keynote-note-box {
+      margin-top: 1.8rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      background: #eff6ff;
+      border: 1px dashed #2563eb;
+      font-size: 0.85rem;
+      color: #1f2933;
+    }
+
+    .keynote-note-box strong {
+      color: #1d4ed8;
+    }
+
+    @media (max-width: 600px) {
+      .keynote-card {
+        padding: 1.1rem 1rem 1rem;
+      }
+      .speaker-avatar {
+        width: 46px;
+        height: 46px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper" id="top">
+
+
+  <!-- Header include -->
+  <div id="header-placeholder"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <h2 class="section-heading">Keynote Speakers</h2>
+      <p class="section-subtitle">
+        ICSEB 2026 brings together distinguished international experts to deliver
+        visionary talks on intelligent computing, smart electronics, secure networks,
+        and bioinformatics-driven healthcare.
+      </p>
+      <p class="keynote-intro-note">
+        The following keynote speakers and talk topics are <strong>tentative</strong> and
+        will be updated as confirmations are received.
+      </p>
+
+      <div class="keynote-grid">
+
+        <!-- 1. Dr. Xiao-Zhi Gao -->
+        <div class="keynote-card">
+          <div class="keynote-header">
+            <div class="speaker-avatar">XG</div>
+            <div class="speaker-main">
+              <div class="speaker-name">Dr. Xiao-Zhi Gao</div>
+              <div class="speaker-role">Professor, School of Computing</div>
+              <div class="speaker-affiliation">
+                Faculty of Science, University of Eastern Finland, Finland
+              </div>
+            </div>
+          </div>
+          <div class="keynote-topic-label">Tentative keynote topic</div>
+          <div class="keynote-topic">
+            Intelligent Optimization and Hybrid AI for Smart Cyber-Physical Systems
+          </div>
+          <div class="speaker-tags">
+            <span class="speaker-tag">Computational Intelligence</span>
+            <span class="speaker-tag">Smart Systems</span>
+            <span class="speaker-tag">Optimization</span>
+          </div>
+        </div>
+
+        <!-- 2. Prof. Martin Margala -->
+        <div class="keynote-card">
+          <div class="keynote-header">
+            <div class="speaker-avatar">MM</div>
+            <div class="speaker-main">
+              <div class="speaker-name">Prof. Martin Margala</div>
+              <div class="speaker-role">
+                Professor &amp; Director, School of Computing and Informatics
+              </div>
+              <div class="speaker-affiliation">
+                University of Louisiana at Lafayette, Louisiana, USA
+              </div>
+            </div>
+          </div>
+          <div class="keynote-topic-label">Tentative keynote topic</div>
+          <div class="keynote-topic">
+            Energy-Efficient Computing Architectures for AI at the Edge
+          </div>
+          <div class="speaker-tags">
+            <span class="speaker-tag">Edge &amp; Cloud Computing</span>
+            <span class="speaker-tag">VLSI &amp; Electronics</span>
+            <span class="speaker-tag">Green AI</span>
+          </div>
+        </div>
+
+        <!-- 3. Prof. Tai-hoon Kim -->
+        <div class="keynote-card">
+          <div class="keynote-header">
+            <div class="speaker-avatar">TK</div>
+            <div class="speaker-main">
+              <div class="speaker-name">Prof. Tai-hoon Kim</div>
+              <div class="speaker-role">TPC Chair – AI &amp; Data Science</div>
+              <div class="speaker-affiliation">
+                Professor, School of Electrical and Computer Engineering,
+                Yeosu Campus, Chonnam National University, Republic of Korea
+              </div>
+            </div>
+          </div>
+          <div class="keynote-topic-label">Tentative keynote topic</div>
+          <div class="keynote-topic">
+            Trustworthy AI and Secure Data Science Pipelines for Intelligent Applications
+          </div>
+          <div class="speaker-tags">
+            <span class="speaker-tag">AI &amp; Data Science</span>
+            <span class="speaker-tag">Security &amp; Privacy</span>
+            <span class="speaker-tag">Cyber-Physical Systems</span>
+          </div>
+        </div>
+
+        <!-- 4. Dr. Manisha guduri -->
+        <div class="keynote-card">
+          <div class="keynote-header">
+            <div class="speaker-avatar">MG</div>
+            <div class="speaker-main">
+              <div class="speaker-name">Dr. Manisha guduri</div>
+              <div class="speaker-role">TPC Chair – Bioinformatics</div>
+              <div class="speaker-affiliation">
+                Department of Electrical and Computer Engineering,
+                Lawrence Technological University, Michigan, USA
+              </div>
+            </div>
+          </div>
+          <div class="keynote-topic-label">Tentative keynote topic</div>
+          <div class="keynote-topic">
+            AI-Powered Bioinformatics: From Omics Data to Precision Healthcare
+          </div>
+          <div class="speaker-tags">
+            <span class="speaker-tag">Bioinformatics</span>
+            <span class="speaker-tag">Healthcare Analytics</span>
+            <span class="speaker-tag">Machine Learning</span>
+          </div>
+        </div>
+
+        <!-- 5. Dr. Azath Mubarakali -->
+        <div class="keynote-card">
+          <div class="keynote-header">
+            <div class="speaker-avatar">AM</div>
+            <div class="speaker-main">
+              <div class="speaker-name">Dr. Azath Mubarakali</div>
+              <div class="speaker-role">TPC Chair – Machine Learning &amp; Electronics</div>
+              <div class="speaker-affiliation">
+                Professor, College of Computer Science,
+                King Khalid University, Kingdom of Saudi Arabia
+              </div>
+            </div>
+          </div>
+          <div class="keynote-topic-label">Tentative keynote topic</div>
+          <div class="keynote-topic">
+            Intelligent Electronics: Machine Learning Models for IoT and Embedded Systems
+          </div>
+          <div class="speaker-tags">
+            <span class="speaker-tag">Machine Learning</span>
+            <span class="speaker-tag">Smart Electronics</span>
+            <span class="speaker-tag">IoT Systems</span>
+          </div>
+        </div>
+
+        <!-- 6. Dr. Subarna Shakya -->
+        <div class="keynote-card">
+          <div class="keynote-header">
+            <div class="speaker-avatar">SS</div>
+            <div class="speaker-main">
+              <div class="speaker-name">Dr. Subarna Shakya</div>
+              <div class="speaker-role">Professor, Electronics and Computer Engineering</div>
+              <div class="speaker-affiliation">
+                Pulchowk Campus, Institute of Engineering,
+                Tribhuvan University, Nepal
+              </div>
+            </div>
+          </div>
+          <div class="keynote-topic-label">Tentative keynote topic</div>
+          <div class="keynote-topic">
+            Secure Network Architectures for AI-Driven Cyber-Physical Infrastructures
+          </div>
+          <div class="speaker-tags">
+            <span class="speaker-tag">Network Security</span>
+            <span class="speaker-tag">Cyber-Physical Systems</span>
+            <span class="speaker-tag">Resilient Infrastructure</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="keynote-note-box">
+        <strong>Note:</strong> The above keynote speakers and talk topics are
+        tentative and are subject to confirmation. The final list, schedule and
+        talk titles will be updated on the conference website and communicated to
+        registered participants.
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer include -->
+  <div id="footer-placeholder"></div>
+</div>
+
+<script>
+    setActiveNav("keynote");
+
+  function loadPartial(id, file, onLoad) {
+    fetch(file)
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById(id).innerHTML = html;
+        if (onLoad) onLoad();
+      });
+  }
+  function setActiveNav(pageClass) {
+    const link = document.querySelector(".main-nav a.nav-" + pageClass);
+    if (link) link.classList.add("active");
+  }
+
+  // If you add <a href="keynote.html" class="nav-keynote">Keynote Speakers</a> in header.html,
+  // this will highlight it.
+  loadPartial("header-placeholder", "header.html", () => setActiveNav("keynote"));
+  loadPartial("footer-placeholder", "footer.html");
+</script>
+</body>
+</html>

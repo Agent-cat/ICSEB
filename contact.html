@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2026 – Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .contact-card h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+    .contact-card p {
+      font-size: 0.88rem;
+    }
+    .contact-form {
+      margin-top: 1.4rem;
+    }
+    .contact-form form {
+      display: grid;
+      gap: 0.7rem;
+    }
+    .contact-form label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #0b1a2b;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid #c5d3ea;
+      font-size: 0.9rem;
+    }
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-status {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper" id="top">
+
+  <!-- Header include -->
+  <div id="header-placeholder"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <h2 class="section-heading">Contact</h2>
+      <p class="section-subtitle">
+        For any queries related to paper submission, registration, accommodation,
+        or sponsorship, please contact the conference secretariat.
+      </p>
+
+      <div class="contact-grid">
+        <div class="text-block contact-card">
+          <h3>General Enquiries</h3>
+          <p>
+            <strong>Conference Secretariat – ICSEB 2026</strong><br />
+            K L Deemed to be University (KLEF)<br />
+            Vaddeswaram, Guntur – 522502,<br />
+            Andhra Pradesh, India.
+          </p>
+          <p style="margin-top:0.4rem;">
+            Email:
+            <a href="mailto:info@ICSEB.crinfoglobal.com" class="email">
+              info@ICSEB.crinfoglobal.com
+            </a><br />
+          </p>
+        </div>
+
+        <div class="text-block contact-card">
+          <h3>Technical Programme / Paper Submission</h3>
+          <p>
+            For questions regarding paper submission, review process, and
+            technical tracks:
+          </p>
+          <p style="margin-top:0.4rem;">
+            Email:
+            <a href="mailto:info@ICSEB.crinfoglobal.com" class="email">
+              info@ICSEB.crinfoglobal.com
+            </a>
+          </p>
+        </div>
+
+        <div class="text-block contact-card">
+          <h3>Registration &amp; Accounts</h3>
+          <p>
+            Queries related to registration fee, payment confirmation,
+            invoices and receipts:
+          </p>
+          <p style="margin-top:0.4rem;">
+            Email:
+            <a href="mailto:registration@ICSEB.crinfoglobal.com" class="email">
+              registration@ICSEB.crinfoglobal.com
+            </a>
+          </p>
+        </div>
+
+        <!-- Organizing Chair card -->
+        <div class="text-block contact-card">
+          <h3>Organizing Chair</h3>
+          <p>
+            <strong>Dr. DINESH KUMAR ANGURAJ</strong><br />
+            Organizing Chair, ICSEB 2026<br />
+            Associate Dean (R&amp;D) &amp; Associate Professor,<br />
+            Department of CSE (EL&amp;GE),<br />
+            KL University, Guntur, Andhra Pradesh, INDIA – 522302.
+          </p>
+          <p style="margin-top:0.4rem;">
+            Email:
+            <a href="mailto:adinesh@kluniversity.in" class="email">
+              adinesh@kluniversity.in
+            </a><br />
+            Mobile:
+            <a href="tel:+919445100171" class="email">
+              +91 94451 00171
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="text-block contact-form">
+        <h3>Quick Contact Form</h3>
+        <p style="font-size:0.86rem;margin-bottom:0.6rem;">
+          Please fill in your details and message. Your default mail application
+          will open with the information filled in, addressed to the conference
+          secretariat.
+        </p>
+        <form id="contactForm">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+          </div>
+          <div>
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" placeholder="Subject of your query" required />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Type your message here" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Send Message
+          </button>
+          <div id="contactStatus" class="contact-status"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer include -->
+  <div id="footer-placeholder"></div>
+</div>
+
+<script>
+  function loadPartial(id, file, onLoad) {
+    fetch(file)
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById(id).innerHTML = html;
+        if (onLoad) onLoad();
+      });
+  }
+  function setActiveNav(pageClass) {
+    const link = document.querySelector(".main-nav a.nav-" + pageClass);
+    if (link) link.classList.add("active");
+  }
+  loadPartial("header-placeholder", "header.html", () => setActiveNav("contact"));
+  loadPartial("footer-placeholder", "footer.html");
+
+  // ====== Contact form handler – mailto only (no backend) ======
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("contactStatus");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const subject = form.subject.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !subject || !message) {
+      statusEl.textContent = "Please fill in all fields before sending.";
+      return;
+    }
+
+    // Target address – as requested
+    const to = "info@ICSEB.crinfoglobal.com";
+
+    const fullSubject = `[ICSEB 2026 Contact] ${subject}`;
+    const bodyLines = [
+      `Name   : ${name}`,
+      `Email  : ${email}`,
+      "",
+      "Message:",
+      message
+    ];
+    const body = bodyLines.join("\n");
+
+    const mailtoLink =
+      "mailto:" + encodeURIComponent(to) +
+      "?subject=" + encodeURIComponent(fullSubject) +
+      "&body=" + encodeURIComponent(body);
+
+    statusEl.textContent = "Opening your mail application...";
+    // Open default mail client
+    window.location.href = mailtoLink;
+  });
+</script>
+</body>
+</html>

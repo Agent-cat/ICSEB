@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2026 – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Home-page specific visual enhancements -->
+  <style>
+    /* ======= HOME HIGHLIGHT STRIP (just below hero) ======= */
+    .home-highlight-strip {
+      background: linear-gradient(90deg, #0d47a1 0%, #1565c0 40%, #1e88e5 100%);
+      padding: 0.8rem 0;
+      color: #e3f2fd;
+    }
+
+    .home-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .home-highlight-card {
+      background: rgba(13, 71, 161, 0.06);
+      border-radius: 14px;
+      border: 1px solid rgba(227, 242, 253, 0.35);
+      padding: 0.75rem 0.9rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .home-highlight-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    .home-highlight-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: #ffffff;
+      margin-top: 0.2rem;
+    }
+
+    .home-highlight-text {
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+      opacity: 0.95;
+    }
+
+    /* ======= WHY ATTEND / FEATURES SECTION ======= */
+    .home-feature-section {
+      margin-top: 2rem;
+    }
+
+    .home-feature-section .small-heading {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .home-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .home-feature-card {
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(145deg, #e3f2fd, #ffffff);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    .home-feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #0b1a2b;
+    }
+
+    .home-feature-card p,
+    .home-feature-card li {
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .home-feature-card ul {
+      margin-left: 1.1rem;
+      list-style: square;
+    }
+
+    /* ======= TRACK TAGS STRIP ======= */
+    .home-track-section {
+      margin-top: 1.6rem;
+    }
+
+    .home-track-section h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: #0b1a2b;
+    }
+
+    .home-track-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .home-track-tag {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      background: rgba(219, 234, 254, 0.9);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1d4ed8;
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.1);
+    }
+
+    /* ======= CTA BANNER AT BOTTOM ======= */
+    .home-cta-section {
+      margin-top: 2rem;
+    }
+
+    .home-cta-banner {
+      padding: 1.3rem 1.5rem;
+      border-radius: 18px;
+      background: linear-gradient(120deg, #0d47a1, #1565c0, #1e88e5);
+      color: #e3f2fd;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 18px 40px rgba(21, 101, 192, 0.6);
+    }
+
+    .home-cta-banner h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
+      color: #e3f2fd;
+    }
+
+    .home-cta-banner p {
+      font-size: 0.9rem;
+      max-width: 540px;
+    }
+
+    .home-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .home-cta-buttons .btn-primary {
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
+    }
+
+    .home-cta-buttons .btn-outline-light {
+      border-radius: 999px;
+      border: 1px solid #e3f2fd;
+      padding: 0.45rem 1.2rem;
+      color: #e3f2fd;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .home-cta-buttons .btn-outline-light:hover {
+      background-color: rgba(226, 232, 240, 0.16);
+    }
+
+    /* ======= SCROLL-TO-TOP BUTTON ======= */
+    .scroll-top {
+      position: fixed;
+      right: 1.4rem;
+      bottom: 1.4rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: none;
+      background: #0d47a1;
+      color: #e3f2fd;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.55);
+      z-index: 999;
+      font-size: 1.1rem;
+    }
+
+    .scroll-top.show {
+      display: flex;
+    }
+
+    .scroll-top:hover {
+      background: #1565c0;
+    }
+
+    /* ======= RESPONSIVE TWEAKS ======= */
+    @media (max-width: 1024px) {
+      .home-highlight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .home-highlight-grid {
+        grid-template-columns: 1fr;
+      }
+      .home-cta-banner {
+        padding: 1rem 1rem;
+      }
+      .home-cta-banner h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper" id="top">
+
+
+  <!-- HEADER (loaded from header.html) -->
+  <div id="header-placeholder"></div>
+<!-- Scrolling news ticker -->
+      <section class="news-ticker-section">
+        <div class="news-ticker">
+          <div class="news-label">LATEST NEWS & UPDATES: </div>
+          <div class="news-window">
+            <div class="news-track">
+              <span class="news-item">
+                <strong>Call for Papers Released:</strong> Authors are invited to submit
+                original research in intelligent computing, smart electronics and
+                bioinformatics.
+              </span>
+              <span class="news-item">
+                <strong>Important Dates Confirmed:</strong> Submission – 30 June 2026,
+                Acceptance – 31 August 2026, Camera-ready – 30 September 2026,
+                Conference – 27–28 November 2026.
+              </span>
+              <span class="news-item">
+                <strong>Technical Tracks Finalized:</strong> AI &amp; DS, Smart
+                Electronics, Networking &amp; Security, Bioinformatics and
+                Interdisciplinary Applications.
+              </span>
+              <span class="news-item">
+                <strong>Submission Portal:</strong> Online submission link will be
+                published shortly on the conference website.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <!-- Hero content -->
+    <div class="container hero-grid">
+      <!-- Left side -->
+      <div>
+        <div class="hero-tag">
+          <span class="dot"></span>
+          <span>Sponsored by Koneru Lakshmaiah Education Foundation & Technical Sponsor by IEEE Hyderabad Section &amp; IEEE Guntur Subsection</span>
+        </div>
+        <h1 class="hero-title">Welcome to ICSEB 2026</h1>
+        <p class="hero-subtitle">
+          1st IEEE International Conference on  Intelligent
+          Computing, Smart Electronics and Bioinformatics – 2026.
+        </p>
+        <p class="hero-meta">
+          <strong>Dates:</strong> 27–28 November 2026<br />
+          <strong>Venue:</strong> K L Deemed to be University (KLEF),
+          Vaddeswaram, Vijayawada, Andhra Pradesh, India
+        </p>
+        <div class="hero-buttons">
+          <a href="cfp.html" class="btn btn-primary">View Call for Papers</a>
+          <a href="submission.html" class="btn btn-outline">Submit Your Paper</a>
+          <a href="program.html" class="btn btn-outline">Program Schedule</a>
+          <a href="venue.html" class="btn btn-outline">Venue &amp; Travel</a>
+        </div>
+      </div>
+
+      <!-- Right side card -->
+      <aside class="hero-card">
+        <div class="hero-card-title">Important Dates – ICSEB 2026</div>
+        <div class="hero-chip-row">
+          <div class="hero-chip">Submissions Open</div>
+          <div class="hero-chip">Peer Review</div>
+          <div class="hero-chip">IEEE Xplore®</div>
+        </div>
+       <p class="hero-date">
+  <strong>Paper Submission Deadline:</strong> 30 June 2026<br />
+  <strong>Acceptance Notification:</strong> 31 August 2026<br />
+  <strong>Camera-Ready Submission:</strong> 30 September 2026<br />
+  <strong>Early-Bird Registration:</strong> Up to 15 October 2026<br />
+  <strong>Regular Registration:</strong> 16 October – 10 November 2026<br />
+  <strong>Conference Dates:</strong> 27–28 November 2026
+</p>
+        <p class="hero-note">
+          Accepted and presented papers will be submitted for inclusion in
+          IEEE Xplore® (subject to IEEE quality review and standards).
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== QUICK HIGHLIGHT STRIP (ADDED) ===== -->
+  <section class="home-highlight-strip">
+    <div class="container home-highlight-grid">
+      <div class="home-highlight-card">
+        <div class="home-highlight-label">Tracks</div>
+        <div class="home-highlight-number">05+</div>
+        <div class="home-highlight-text">AI, Smart Electronics, Networks, Bioinformatics &amp; Interdisciplinary Applications.</div>
+      </div>
+      <div class="home-highlight-card">
+        <div class="home-highlight-label">Keynote Speakers</div>
+        <div class="home-highlight-number">08+</div>
+        <div class="home-highlight-text">Leading experts from universities and industries across the globe.</div>
+      </div>
+      <div class="home-highlight-card">
+        <div class="home-highlight-label">Publication</div>
+        <div class="home-highlight-number">IEEE</div>
+        <div class="home-highlight-text">Accepted &amp; presented papers planned for submission to IEEE Xplore®.</div>
+      </div>
+      <div class="home-highlight-card">
+        <div class="home-highlight-label">Location</div>
+        <div class="home-highlight-number">KLEF</div>
+        <div class="home-highlight-text">Green, research-driven campus at Vijayawada, Andhra Pradesh, India.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+
+      
+
+      <!-- About the Conference -->
+      <h2 class="section-heading">About the Conference</h2>
+      <p class="section-subtitle">
+        ICSEB 2026 aims to bring together academicians, researchers, industry
+        professionals and students to exchange and share their experiences on
+        all aspects of intelligent computing, smart electronics and
+        bioinformatics. The conference serves as an interdisciplinary platform
+        to present novel theories, algorithms, architectures and applications
+        that bridge computing, electronics and life sciences. It encourages
+        both fundamental research contributions and practical solutions to
+        real-world problems in healthcare, communication, automation and
+        intelligent systems.
+      </p>
+
+      <!-- Info cards -->
+      <div class="card-grid">
+        <div class="card">
+          <h3>Tracks &amp; Themes</h3>
+          <p>
+            Artificial Intelligence, Machine Learning, Deep Learning,
+            Cyber-Physical Systems, Smart Sensors, Embedded Systems,
+            Healthcare Analytics, Medical Image Processing, Bioinformatics,
+            Secure Networking and more.
+          </p>
+        </div>
+       <div class="card">
+  <h3>Important Dates</h3>
+  <p>
+    Paper Submission Deadline: <strong>30 June 2026</strong><br />
+    Acceptance Notification: <strong>31 August 2026</strong><br />
+    Camera-Ready Submission: <strong>30 September 2026</strong><br />
+    Early-Bird Registration: <strong>Up to 15 October 2026</strong><br />
+    Regular Registration: <strong>16 October – 10 November 2026</strong><br />
+    Conference Dates: <strong>27–28 November 2026</strong>.
+  </p>
+</div>
+
+        <div class="card">
+          <h3>Organizing Institution</h3>
+          <p>
+            The conference is organized by K L Deemed to be University
+            (KLEF), Vijayawada, Andhra Pradesh, India, in association with
+            IEEE Hyderabad Section and IEEE Guntur Subsection.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== WHY ATTEND SECTION (ADDED) ===== -->
+      <section class="home-feature-section">
+        <h2 class="section-heading small-heading">Why Attend ICSEB 2026?</h2>
+        <div class="home-feature-grid">
+          <div class="home-feature-card">
+            <h3>Interdisciplinary Focus</h3>
+            <p>
+              Experience a rare blend of Artificial Intelligence, Electronics,
+              Communication, and Bioinformatics in a single international forum.
+            </p>
+            <ul>
+              <li>Meet domain experts from computing and life sciences.</li>
+              <li>Explore cross-domain solutions for real-world problems.</li>
+            </ul>
+          </div>
+          <div class="home-feature-card">
+            <h3>Strong Technical Program</h3>
+            <p>
+              A carefully curated technical program with keynotes, tutorials,
+              oral and poster sessions built around emerging research.
+            </p>
+            <ul>
+              <li>Peer-reviewed papers with IEEE-style rigor.</li>
+              <li>Special sessions on frontier topics and applications.</li>
+            </ul>
+          </div>
+          <div class="home-feature-card">
+            <h3>Networking &amp; Collaboration</h3>
+            <p>
+              Build new academic and industry partnerships and explore joint
+              projects, consultancy and student opportunities.
+            </p>
+            <ul>
+              <li>Interact with researchers from India and abroad.</li>
+              <li>Identify mentors, collaborators and internship avenues.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TRACK TAG SNAPSHOT (ADDED) ===== -->
+      <section class="home-track-section">
+        <h3>Key Track Snapshot</h3>
+        <div class="home-track-tags">
+          <span class="home-track-tag">AI &amp; Deep Learning</span>
+          <span class="home-track-tag">Cyber-Physical Systems</span>
+          <span class="home-track-tag">Smart Sensors &amp; IoT</span>
+          <span class="home-track-tag">VLSI &amp; Embedded Systems</span>
+          <span class="home-track-tag">5G / 6G &amp; Wireless Networks</span>
+          <span class="home-track-tag">Cyber Security &amp; Blockchain</span>
+          <span class="home-track-tag">Medical Image Analysis</span>
+          <span class="home-track-tag">Bioinformatics &amp; Genomics</span>
+          <span class="home-track-tag">Smart Cities &amp; Smart Grids</span>
+        </div>
+      </section>
+
+      <!-- Conference Brochure -->
+      <section class="brochure-section" style="margin-top:1.6rem;">
+        <div class="text-block">
+          <h3>Conference Brochure</h3>
+          <p>
+            A detailed conference brochure containing information about the tracks,
+            key dates, committees, venue and general guidelines will be made
+            available as a downloadable PDF. Participants can use the brochure for
+            circulation within their departments, research groups and professional
+            networks.
+          </p>
+          <p style="margin-top:0.6rem;">
+            <a href="broucher.html"
+               class="btn btn-primary"
+               target="_blank"
+               rel="noopener">
+              Click to View Conference Brochure
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Campus gallery -->
+      <section class="campus-gallery">
+        <h2>Campus &amp; Venue – K L Deemed to be University (KLEF)</h2>
+        <p>
+          ICSEB 2026 will be hosted at the green and modern Vijayawada campus of
+          K L Deemed to be University (KLEF), located near the scenic banks of
+          the Krishna River. The campus offers world-class academic blocks,
+          state-of-the-art laboratories, centrally air-conditioned auditoria and
+          excellent residential and dining facilities for participants. Its
+          vibrant research ecosystem, high-speed network infrastructure and
+          student-friendly environment provide an ideal setting for meaningful
+          technical sessions, discussions and networking during the conference.
+        </p>
+       <div class="gallery-strip">
+  <img src="images/KLUni Pic1.png" />
+  <img src="images/KLUni Pic6.png" />
+  <img src="images/KLUni Pic5.png" />
+  <img src="images/KLUni Pic4.png" />
+  <img src="images/KLUni Pic3.png" />
+  <img src="images/KLUni Pic2.png" />
+
+  <!-- Duplicate again for infinite scroll -->
+  <img src="images/KLUni Pic1.png" />
+  <img src="images/KLUni Pic6.png" />
+  <img src="images/KLUni Pic5.png" />
+  <img src="images/KLUni Pic4.png" />
+  <img src="images/KLUni Pic3.png" />
+  <img src="images/KLUni Pic2.png" />
+</div>
+
+      </section>
+
+      <!-- ===== CTA BANNER (ADDED) ===== -->
+      <section class="home-cta-section">
+        <div class="home-cta-banner">
+          <div>
+            <h3>Ready to be part of ICSEB 2026?</h3>
+            <p>
+              Share your latest research outcomes, showcase innovative applications,
+              and experience an inspiring two-day international conference at
+              K L Deemed to be University, Vijayawada.
+            </p>
+          </div>
+          <div class="home-cta-buttons">
+            <a href="submission.html" class="btn btn-primary">Submit Your Paper</a>
+            <a href="registration.html" class="btn-outline-light">Register as Delegate</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+</div>
+
+<!-- Scroll to top button -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">
+  ↑
+</button>
+
+<!-- JS to include header & footer -->
+<script>
+  function loadPartial(id, file, onLoad) {
+    fetch(file)
+      .then(function (response) { return response.text(); })
+      .then(function (html) {
+        document.getElementById(id).innerHTML = html;
+        if (typeof onLoad === "function") onLoad();
+      })
+      .catch(function (err) {
+        console.error("Error loading", file, err);
+      });
+  }
+
+  function setActiveNav(pageClass) {
+    var link = document.querySelector(".main-nav a.nav-" + pageClass);
+    if (link) link.classList.add("active");
+  }
+
+  loadPartial("header-placeholder", "header.html", function () {
+    setActiveNav("home");
+  });
+
+  loadPartial("footer-placeholder", "footer.html");
+
+  // Scroll-to-top behaviour
+  var scrollBtn = document.getElementById("scrollTopBtn");
+  window.addEventListener("scroll", function () {
+    if (!scrollBtn) return;
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+</script>
+</body>
+</html>

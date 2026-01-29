@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2026 – About the Conference</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page-wrapper" id="top">
+
+
+  <!-- Header include -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <div class="container">
+      <h2 class="section-heading">Conference Overview</h2>
+      <p class="section-subtitle">
+        ICSEB 2026 – 1st IEEE International Conference on Intelligent Computing, Smart Electronics and Bioinformatics.
+      </p>
+
+      <!-- Objective -->
+      <div class="text-block">
+        <h3>Objective</h3>
+        <p>
+          The primary objective of ICSEB 2026 is to provide a premier, interdisciplinary
+          platform for academicians, researchers, industry professionals and students to
+          present and discuss the latest innovations, trends, challenges and solutions in
+          the domains of intelligent computing, smart electronics and bioinformatics.
+          The conference aims to foster collaboration between computer science,
+          electronics, and life sciences communities and to showcase impactful research
+          that can translate into real-world applications.
+        </p>
+      </div>
+
+      <!-- Scope -->
+      <div class="text-block">
+        <h3>Scope</h3>
+        <p>
+          The scope of ICSEB 2026 spans theoretical foundations, algorithmic advances,
+          systems design and practical implementations that bring intelligence, sensing
+          and analytics together. The conference encourages contributions that blend AI,
+          embedded systems, communication technologies and biological/health data
+          analysis into integrated solutions.
+        </p>
+        <ul class="clean-list">
+          <li>Foundations of Artificial Intelligence, Machine Learning and Deep Learning</li>
+          <li>Smart Sensors, Embedded Systems, IoT and Cyber–Physical Systems</li>
+          <li>VLSI, Mixed-Signal Circuits, Nano-Electronics and Smart Devices</li>
+          <li>Communication Networks, Sensor Networks and Secure Information Systems</li>
+          <li>Medical Image Processing, Healthcare Informatics and Clinical Decision Support</li>
+          <li>Bioinformatics, Computational Biology and Genomics/Proteomics Analytics</li>
+          <li>Interdisciplinary applications in smart cities, transportation and automation</li>
+        </ul>
+      </div>
+
+      <!-- Who Should Attend -->
+      <div class="text-block">
+        <h3>Who Should Attend?</h3>
+        <p>
+          ICSEB 2026 is designed for participants from both academia and industry who
+          are working in or interested in the broad themes of the conference. It provides
+          an excellent opportunity for young researchers and students to interact with
+          experts and gain exposure to current research problems and emerging directions.
+        </p>
+        <ul class="clean-list">
+          <li>Faculty members and researchers from universities, institutes and R&amp;D labs</li>
+          <li>Postgraduate and doctoral scholars in Computer Science, Electronics and related fields</li>
+          <li>Industry practitioners, solution architects and product developers</li>
+          <li>Undergraduate students aspiring to pursue research and innovation</li>
+        </ul>
+      </div>
+
+      <!-- Organizing Institution -->
+      <div class="text-block">
+        <h3>Organizing Institution</h3>
+        <p>
+          The 1st IEEE International Conference on  Intelligent
+          Computing, Smart Electronics and Bioinformatics - 2026 (ICSEB 2026) is
+          organized by <strong>K L Deemed to be University (KLEF)</strong>, Vijayawada,
+          Andhra Pradesh, India. The conference is held at the Vijayawada campus, which
+          is known for its vibrant academic culture, strong research ecosystem and
+          industry collaborations.
+        </p>
+        <p>
+          The conference is technically supported by <strong>IEEE Hyderabad Section</strong>
+          and <strong>IEEE Guntur Subsection</strong>, with the vision to promote high
+          quality research dissemination and to connect the local and global research
+          communities working in intelligent systems, electronics and bioinformatics.
+        </p>
+      </div>
+
+      <!-- Outcomes -->
+      <div class="text-block">
+        <h3>Expected Outcomes</h3>
+        <ul class="clean-list">
+          <li>Dissemination of high-quality research results and innovative ideas</li>
+          <li>Creation of new academic and industry collaborations and joint projects</li>
+          <li>Exposure to emerging tools, technologies and application domains</li>
+          <li>Networking opportunities for students, researchers and professionals</li>
+        </ul>
+        <p style="margin-top:0.5rem;">
+          Accepted and presented papers will be submitted for inclusion in IEEE Xplore&reg;
+          (subject to IEEE quality review and standards), thereby providing global
+          visibility to the authors’ contributions.
+        </p>
+      </div>
+
+      <!-- Conference Brochure -->
+      <section class="brochure-section" style="margin-top:1.6rem;">
+        <div class="text-block">
+          <h3>Conference Brochure</h3>
+          <p>
+            The ICSEB 2026 brochure provides a concise overview of the conference
+            themes, important dates, organizing committees, venue details and
+            participation guidelines. It can be circulated within departments,
+            professional bodies and collaborating institutions to promote the event.
+          </p>
+          <p style="margin-top:0.6rem;">
+            <a href="broucher.html"
+               class="btn btn-primary"
+               target="_blank"
+               rel="noopener">
+              Click to View Conference Brochure
+            </a>
+          </p>
+         
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer include -->
+  <div id="footer-placeholder"></div>
+
+</div>
+
+<!-- Include header and footer via JS -->
+<script>
+  function loadPartial(id, file, onLoad) {
+    fetch(file)
+      .then(function (response) { return response.text(); })
+      .then(function (html) {
+        document.getElementById(id).innerHTML = html;
+        if (typeof onLoad === "function") onLoad();
+      })
+      .catch(function (err) {
+        console.error("Error loading", file, err);
+      });
+  }
+
+  function setActiveNav(pageClass) {
+    var link = document.querySelector(".main-nav a.nav-" + pageClass);
+    if (link) link.classList.add("active");
+  }
+
+  loadPartial("header-placeholder", "header.html", function () {
+    setActiveNav("about");
+  });
+
+  loadPartial("footer-placeholder", "footer.html");
+</script>
+</body>
+</html>
