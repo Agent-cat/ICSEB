@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2027 – Register Now</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .form-card {
+      background:#fff;
+      padding:1.5rem;
+      border-radius:16px;
+      box-shadow:0 12px 30px rgba(15,23,42,0.12);
+      margin-bottom:1.5rem;
+    }
+    .form-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1rem;
+    }
+    label {
+      font-weight:600;
+      font-size:0.9rem;
+      margin-bottom:0.3rem;
+      display:block;
+    }
+    input, select, textarea {
+      width:100%;
+      padding:0.75rem;
+      border:1px solid #cbd5e1;
+      border-radius:10px;
+      font-size:0.95rem;
+    }
+    .fee-box {
+      background:#e3f2fd;
+      border:1px solid #90caf9;
+      padding:1rem;
+      border-radius:14px;
+      margin-top:1rem;
+      font-size:1.1rem;
+      font-weight:700;
+      color:#0d47a1;
+    }
+    .terms-box label {
+      display:flex;
+      gap:0.5rem;
+      align-items:flex-start;
+      font-weight:400;
+      margin:0.5rem 0;
+    }
+    .terms-box input {
+      width:auto;
+      margin-top:0.2rem;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-wrapper" id="top">
+
+  <div id="header-placeholder"></div>
+
+  <main class="main-content">
+    <div class="container">
+
+      <h2 class="section-heading">ICSEB 2027 Registration Form</h2>
+      <p class="section-subtitle">
+        Please enter the required details carefully. The payable fee will be calculated automatically based on the selected registration category.
+      </p>
+
+      <form id="registrationForm">
+
+        <div class="form-card">
+          <h3>Paper / Participation Details</h3>
+          <div class="form-grid">
+            <div>
+              <label>Paper ID / Registration Reference *</label>
+              <input type="text" id="paperId" required />
+            </div>
+            <div>
+              <label>Paper Title / Purpose *</label>
+              <input type="text" id="paperTitle" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Corresponding Author / Participant Details</h3>
+          <div class="form-grid">
+            <div>
+              <label>Full Name *</label>
+              <input type="text" id="fullName" required />
+            </div>
+            <div>
+              <label>Affiliation *</label>
+              <input type="text" id="affiliation" required />
+            </div>
+            <div>
+              <label>Email ID *</label>
+              <input type="email" id="email" required />
+            </div>
+            <div>
+              <label>Contact Number *</label>
+              <input type="tel" id="mobile" required />
+            </div>
+            <div>
+              <label>Country *</label>
+              <input type="text" id="country" required />
+            </div>
+            <div>
+              <label>IEEE Membership Number</label>
+              <input type="text" id="ieeeNumber" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Registration Selection</h3>
+          <div class="form-grid">
+            <div>
+              <label>Registration Category *</label>
+              <select id="category" required>
+                <option value="">Select Category</option>
+                <option value="indian_student_author">Indian Student Author (UG/PG)</option>
+                <option value="indian_faculty_author">Indian Faculty / Research Scholar / PhD</option>
+                <option value="foreign_author">Foreign Author</option>
+                <option value="indian_student_delegate">Indian Student Delegate</option>
+                <option value="indian_academic_delegate">Indian Academic / Research Delegate</option>
+                <option value="indian_industry_delegate">Indian Industry / R&D Delegate</option>
+                <option value="foreign_student_delegate">Foreign Student Delegate</option>
+                <option value="foreign_academic_delegate">Foreign Academic / Research Delegate</option>
+                <option value="foreign_industry_delegate">Foreign Industry Delegate</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Membership Type *</label>
+              <select id="membership" required>
+                <option value="">Select Membership</option>
+                <option value="ieee_student">IEEE Student Member</option>
+                <option value="ieee_member">IEEE Member</option>
+                <option value="non_ieee">Non-IEEE</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Registration Period *</label>
+              <select id="period" required>
+                <option value="">Select Period</option>
+                <option value="early">Early-Bird Registration</option>
+                <option value="regular">Regular Registration</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="fee-box">
+            Payable Amount: <span id="amountText">--</span>
+          </div>
+        </div>
+
+        <div class="form-card terms-box">
+          <h3>Terms and Conditions</h3>
+
+          <label>
+            <input type="checkbox" required />
+            I certify that all information provided above is true and correct.
+          </label>
+
+          <label>
+            <input type="checkbox" required />
+            I understand that one full registration is valid for one accepted paper only.
+          </label>
+
+          <label>
+            <input type="checkbox" required />
+            I understand that accepted papers must be presented in person for IEEE Xplore® submission consideration.
+          </label>
+
+          <label>
+            <input type="checkbox" required />
+            I agree to follow IEEE publication ethics, plagiarism policy, and conference guidelines.
+          </label>
+
+          <label>
+            <input type="checkbox" required />
+            I agree to the registration, cancellation, and refund policies of ICSEB 2027.
+          </label>
+        </div>
+
+        <div style="text-align:center; margin:2rem 0;">
+          <button type="submit" class="btn btn-primary" style="font-size:1.05rem; padding:0.8rem 1.8rem;">
+            Proceed to Payment
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+</div>
+
+<script>
+  function loadPartial(id, file, onLoad) {
+    fetch(file)
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById(id).innerHTML = html;
+        if (onLoad) onLoad();
+      });
+  }
+
+  function setActiveNav(pageClass) {
+    const link = document.querySelector(".main-nav a.nav-" + pageClass);
+    if (link) link.classList.add("active");
+  }
+
+  loadPartial("header-placeholder", "header.html", () => setActiveNav("registration"));
+  loadPartial("footer-placeholder", "footer.html");
+
+  const feeTable = {
+    indian_student_author: {
+      early: { ieee_student: 7000, ieee_member: 8000, non_ieee: 9000, currency: "INR" },
+      regular: { ieee_student: 7500, ieee_member: 8500, non_ieee: 9500, currency: "INR" }
+    },
+    indian_faculty_author: {
+      early: { ieee_student: 8000, ieee_member: 9000, non_ieee: 10000, currency: "INR" },
+      regular: { ieee_student: 8500, ieee_member: 9500, non_ieee: 10500, currency: "INR" }
+    },
+    foreign_author: {
+      early: { ieee_student: 120, ieee_member: 130, non_ieee: 140, currency: "USD" },
+      regular: { ieee_student: 130, ieee_member: 140, non_ieee: 150, currency: "USD" }
+    },
+    indian_student_delegate: {
+      early: { ieee_student: 1000, ieee_member: 1100, non_ieee: 1300, currency: "INR" },
+      regular: { ieee_student: 1200, ieee_member: 1300, non_ieee: 1500, currency: "INR" }
+    },
+    indian_academic_delegate: {
+      early: { ieee_student: 1700, ieee_member: 2000, non_ieee: 2300, currency: "INR" },
+      regular: { ieee_student: 1800, ieee_member: 2200, non_ieee: 2500, currency: "INR" }
+    },
+    indian_industry_delegate: {
+      early: { ieee_student: 2800, ieee_member: 3400, non_ieee: 3800, currency: "INR" },
+      regular: { ieee_student: 3000, ieee_member: 3600, non_ieee: 4000, currency: "INR" }
+    },
+    foreign_student_delegate: {
+      early: { ieee_student: 50, ieee_member: 60, non_ieee: 70, currency: "USD" },
+      regular: { ieee_student: 60, ieee_member: 70, non_ieee: 80, currency: "USD" }
+    },
+    foreign_academic_delegate: {
+      early: { ieee_student: 60, ieee_member: 70, non_ieee: 80, currency: "USD" },
+      regular: { ieee_student: 70, ieee_member: 80, non_ieee: 90, currency: "USD" }
+    },
+    foreign_industry_delegate: {
+      early: { ieee_student: 80, ieee_member: 90, non_ieee: 100, currency: "USD" },
+      regular: { ieee_student: 90, ieee_member: 100, non_ieee: 110, currency: "USD" }
+    }
+  };
+
+  let finalAmount = 0;
+  let finalCurrency = "";
+
+  function calculateFee() {
+    const category = document.getElementById("category").value;
+    const membership = document.getElementById("membership").value;
+    const period = document.getElementById("period").value;
+    const amountText = document.getElementById("amountText");
+
+    if (!category || !membership || !period) {
+      amountText.textContent = "--";
+      finalAmount = 0;
+      finalCurrency = "";
+      return;
+    }
+
+    finalAmount = feeTable[category][period][membership];
+    finalCurrency = feeTable[category][period].currency;
+
+    amountText.textContent =
+      finalCurrency === "INR"
+        ? "₹" + finalAmount
+        : "$" + finalAmount;
+  }
+
+  document.getElementById("category").addEventListener("change", calculateFee);
+  document.getElementById("membership").addEventListener("change", calculateFee);
+  document.getElementById("period").addEventListener("change", calculateFee);
+
+  document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (finalAmount <= 0) {
+      alert("Please select valid registration category, membership type and period.");
+      return;
+    }
+
+    const params = new URLSearchParams({
+      paperId: document.getElementById("paperId").value,
+      name: document.getElementById("fullName").value,
+      email: document.getElementById("email").value,
+      mobile: document.getElementById("mobile").value,
+      category: document.getElementById("category").value,
+      membership: document.getElementById("membership").value,
+      period: document.getElementById("period").value,
+      amount: finalAmount,
+      currency: finalCurrency
+    });
+
+    window.location.href = "payment-gateway.html?" + params.toString();
+  });
+</script>
+</body>
+</html>

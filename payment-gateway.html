@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ICSEB 2027 – Payment Gateway</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<div class="page-wrapper" id="top">
+
+  <div id="header-placeholder"></div>
+
+  <main class="main-content">
+    <div class="container">
+      <h2 class="section-heading">Payment Gateway</h2>
+
+      <div class="text-block">
+        <h3>Payment Summary</h3>
+        <p><strong>Paper ID:</strong> <span id="paperId"></span></p>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Contact Number:</strong> <span id="mobile"></span></p>
+        <p><strong>Amount Payable:</strong> <span id="amount"></span></p>
+
+        <p style="margin-top:1rem;">
+          Please verify the details before proceeding to the secure payment gateway.
+        </p>
+
+        <div style="text-align:center;margin-top:1.5rem;">
+          <button class="btn btn-primary" onclick="goToGateway()">
+            Pay Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+</div>
+
+<script>
+  function loadPartial(id, file) {
+    fetch(file)
+      .then(r => r.text())
+      .then(html => document.getElementById(id).innerHTML = html);
+  }
+
+  loadPartial("header-placeholder", "header.html");
+  loadPartial("footer-placeholder", "footer.html");
+
+  const data = new URLSearchParams(window.location.search);
+
+  document.getElementById("paperId").textContent = data.get("paperId");
+  document.getElementById("name").textContent = data.get("name");
+  document.getElementById("email").textContent = data.get("email");
+  document.getElementById("mobile").textContent = data.get("mobile");
+
+  const currency = data.get("currency");
+  const amount = data.get("amount");
+
+  document.getElementById("amount").textContent =
+    currency === "INR" ? "₹" + amount : "$" + amount;
+
+  function goToGateway() {
+    alert("Payment gateway will be integrated here using Razorpay / CCAvenue / PayU.");
+    
+    // Replace this URL with your actual payment gateway URL later
+    // window.location.href = "https://your-payment-gateway-link.com";
+  }
+</script>
+
+</body>
+</html>
